@@ -1,7 +1,7 @@
 ﻿using System;
 using Flunt.Notifications;
 
-namespace Recipes.Domain.Core
+namespace Recipes.Domain.Core.Entities
 {
     public abstract class Entity : Notifiable
     {
