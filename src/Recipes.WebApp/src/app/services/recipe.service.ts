@@ -1,4 +1,4 @@
-import { IRecipesList, IRecipe } from '../structure/interfaces';
+import { IRecipe } from '../structure/interfaces';
 import { throwError as observableThrowError,  Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -18,9 +18,9 @@ export class RecipeService {
       }));
   }
 
-  get(): Observable<IRecipesList[]> {
+  get(): Observable<IRecipe[]> {
     return this.http.get(`${environment.serviceUrl}/receitas`).pipe(
-      map((res: IRecipesList[]) => res),
+      map((res: IRecipe[]) => res),
       catchError(error => {
         return observableThrowError(error);
       }));

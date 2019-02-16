@@ -6,4 +6,5 @@ export interface IRecipe {
   serves: number;
   ingredients: IIngredient[];
   directions: string;
+  calories: number;
 }

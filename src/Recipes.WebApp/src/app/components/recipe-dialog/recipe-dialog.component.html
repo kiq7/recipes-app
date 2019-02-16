@@ -1,0 +1,18 @@
+<div class="container">
+  <h3 mat-dialog-title>{{ recipe.name }}</h3>
+  <div mat-dialog-content>
+    <b>Porções:</b> {{ recipe.serves }}
+    <p></p>
+    <b>Calorias:</b> {{ recipe.calories }}
+    <p></p>
+    <b>Ingredientes:</b>
+    {{getIngredientsText()}}
+    <p></p>
+    <b>Modo de preparo:</b> {{ recipe.directions }}
+    <p></p>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onBackClick()" tabindex="-1">Voltar</button>
+  </div>
+</div>

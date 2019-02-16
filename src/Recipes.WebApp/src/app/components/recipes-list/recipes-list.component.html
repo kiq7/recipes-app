@@ -9,13 +9,23 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Ação</th>
       <td mat-cell *matCellDef="let row">
-        <button mat-raised-button color="primary" (click)="test(row.id)">Visualizar</button>
+        <button mat-raised-button color="primary" (click)="openRecipeDialog(row)">Visualizar</button>
       </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
+
+  <div class="no-results" [style.display]="dataSource.data.length == 0 ? '' : 'none'">
+    Nenhuma receita cadastrada.
+    <p></p>
+    <a routerLink="/cadastrar">
+      <b>
+        Clique aqui para cadastrar.
+      </b>
+    </a>
+  </div>
 
   <mat-paginator
     #paginator
