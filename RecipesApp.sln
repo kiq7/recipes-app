@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipes.Infra.Data", "src\R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipes.Infra.IoC", "src\Recipes.Infra.IoC\Recipes.Infra.IoC.csproj", "{7807F7A8-B824-4C22-9F6F-FB62CC6ABE1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipes.Api", "src\Recipes.Api\Recipes.Api.csproj", "{70B70696-51E5-4859-87C0-39A683B2EC37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7807F7A8-B824-4C22-9F6F-FB62CC6ABE1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7807F7A8-B824-4C22-9F6F-FB62CC6ABE1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7807F7A8-B824-4C22-9F6F-FB62CC6ABE1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70B70696-51E5-4859-87C0-39A683B2EC37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70B70696-51E5-4859-87C0-39A683B2EC37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70B70696-51E5-4859-87C0-39A683B2EC37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70B70696-51E5-4859-87C0-39A683B2EC37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
