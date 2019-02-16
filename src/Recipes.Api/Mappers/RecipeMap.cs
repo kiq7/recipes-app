@@ -24,7 +24,7 @@ namespace Recipes.Api.Mappers
         {
             return ingredientsId.Select(x => new RecipeIngredient
             {
-                RecipeId = Guid.NewGuid(),   
+                IngredientId = x
             }).ToList();
         }
 
