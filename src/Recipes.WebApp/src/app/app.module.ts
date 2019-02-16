@@ -21,7 +21,9 @@ import {
   MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
-  MatOptionModule
+  MatOptionModule,
+  MatChipsModule,
+  MatSelectModule
 } from '@angular/material';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -31,6 +33,7 @@ import { RouterModule } from '@angular/router';
 import { RecipeDialogComponent } from './components/recipe-dialog/recipe-dialog.component';
 import { RecipeService } from './services';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +64,11 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
+    MatOptionModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatChipsModule,
+    MatSelectModule,
     MatOptionModule
   ],
   entryComponents: [

@@ -1,26 +1,57 @@
 <mat-card>
   <!-- Title of an Card -->
   <mat-card-title>
-    Angular Material Component With Angular 5
+    Cadastro de receita
   </mat-card-title>
 
   <mat-card-content>
-    <form novalidate [formGroup]="modalForm">
-      <mat-form-field appearance="standard">
-        <input matInput placeholder="Input" />
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Sample Hint</mat-hint>
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Nome" formControlName="name" [errorStateMatcher]="matcher" />
+        <mat-error>
+          <span *ngIf="!recipeForm.get('name').valid && recipeForm.get('name').touched">Campo obrigatório.</span>
+          <!-- <span *ngIf="recipeForm.controls.name.invalid && (recipeForm.controls.name.dirty || recipeForm.controls.name.touched)">
+            Nome da deve possuir mais que 1 caracter.
+          </span> -->
+        </mat-error>
       </mat-form-field>
-      <mat-form-field appearance="fill">
-        <textarea matInput placeholder="Textarea"></textarea>
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)]="model.name" placeholder="Calorias" formControlName="calories" [errorStateMatcher]="matcher" />
+        <mat-error>
+          <span *ngIf="!recipeForm.get('calories').valid && recipeForm.get('calories').touched">Campo obrigatório</span>
+        </mat-error>
       </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-select placeholder="Select">
-          <mat-option value="A">A</mat-option>
-          <mat-option value="B">B</mat-option>
-          <mat-option value="C">C</mat-option>
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)]="model.serves" placeholder="Porções" formControlName="serves" [errorStateMatcher]="matcher" />
+        <mat-error>
+          <span *ngIf="!recipeForm.get('serves').valid && recipeForm.get('serves').touched">Campo obrigatório.</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select
+        [(ngModel)]="model.ingredients"
+        placeholder="Ingredientes"
+        multiple
+        formControlName="ingredients"
+        [errorStateMatcher]="matcher">
+          <mat-option *ngFor="let ingredient of ingredients" [value]="ingredient">{{ ingredient.name }}</mat-option>
         </mat-select>
       </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <textarea
+          [(ngModel)]="model.directions"
+          matInput
+          formControlName="directions"
+          [errorStateMatcher]="matcher"
+          placeholder="Modo de preparo"
+        ></textarea>
+        <mat-error>
+          <span *ngIf="!recipeForm.get('directions').valid && recipeForm.get('directions').touched">Campo obrigatório.</span>
+        </mat-error>
+      </mat-form-field>
+      <div class="button-row">
+        <button type="submit" [disabled]="!recipeForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+      </div>
     </form>
   </mat-card-content>
 </mat-card>

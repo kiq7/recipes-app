@@ -30,8 +30,7 @@ namespace Recipes.Infra.Data.Mappings
 
             builder.Property(x => x.Directions)
                 .IsRequired()
-                .HasColumnName("Directions")
-                .HasMaxLength(500);
+                .HasColumnName("Directions");
 
             // Ignore flunt properties
             builder.Ignore(x => x.Valid);
