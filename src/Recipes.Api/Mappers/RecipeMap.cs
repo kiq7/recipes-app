@@ -18,6 +18,8 @@ namespace Recipes.Api.Mappers
             CreateMap<Recipe, AddRecipeViewModel>();
             CreateMap<AddRecipeViewModel, Recipe>()
                 .ForMember(x => x.RecipeIngredients, y => y.MapFrom(z => ResolveIngredientsToEntity(z.Ingredients)));
+
+            CreateMap<Recipe, RecipesListViewModel>();
         }
 
         public List<RecipeIngredient> ResolveIngredientsToEntity(List<Guid> ingredientsId)

@@ -23,11 +23,11 @@ namespace Recipes.Api.Controllers
         }
 
         [HttpGet("receitas")]
-        [ProducesResponseType(typeof(IEnumerable<RecipeViewModel>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(IEnumerable<RecipesListViewModel>), (int)HttpStatusCode.OK)]
         public IActionResult Get()
         {
             var recipes = _service.GetAll();
-            return Ok(_mapper.Map<IEnumerable<RecipeViewModel>>(recipes));
+            return Ok(_mapper.Map<IEnumerable<RecipesListViewModel>>(recipes));
         }
 
         [HttpGet("receitas/{recipeId}")]
