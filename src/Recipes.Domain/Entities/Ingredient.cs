@@ -13,14 +13,10 @@ namespace Recipes.Domain.Entities
         {
             Id = Guid.NewGuid();
             Name = name;
-
-            AddNotifications(new Contract()
-                .Requires()
-                .IsNotNullOrEmpty(Name, "Name", "O ingrediente deve ter um nome."));
         }
 
         public string Name { get; private set; }
-        public List<RecipeIngredient> RecipeIngredients{ get; private set; } = new List<RecipeIngredient>();
+        public List<RecipeIngredient> RecipeIngredients{ get; private set; }
 
 
     }

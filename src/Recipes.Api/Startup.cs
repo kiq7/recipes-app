@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Recipes.Domain.Entities;
 using Recipes.Infra.Data.Context;
 using Recipes.Infra.IoC;
 
@@ -58,6 +59,17 @@ namespace Recipes.Api
             app.UseMvc();
             app.UseSwagger();
             app.UseSwaggerUi3();
+
+
+            using (var serviceScope = app.ApplicationServices.CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetService<RecipesContext>();
+                context.Ingredients.Add(new Ingredient("Leite condensado"));
+                context.Ingredients.Add(new Ingredient("Chocolate em pó"));
+                context.Ingredients.Add(new Ingredient("Teste"));
+                context.SaveChanges();
+            }
+            
         }
 
         private static void RegisterServices(IServiceCollection services)

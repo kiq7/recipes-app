@@ -19,6 +19,9 @@ namespace Recipes.Domain.Services
         public void Add(Recipe recipe)
         {
             recipe.SetId(Guid.NewGuid());
+
+            recipe.RecipeIngredients.ForEach(x => x.RecipeId = recipe.Id);
+
             _repository.Add(recipe);
             _repository.SaveChanges();
         }

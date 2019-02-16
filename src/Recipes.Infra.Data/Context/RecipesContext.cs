@@ -33,12 +33,6 @@ namespace Recipes.Infra.Data.Context
                 .WithMany(s => s.RecipeIngredients)
                 .HasForeignKey(sc => sc.RecipeId);
 
-            modelBuilder.Entity<Ingredient>().HasData(new Ingredient("Arroz"));
-            modelBuilder.Entity<Ingredient>().HasData(new Ingredient("Feijão"));
-            modelBuilder.Entity<Ingredient>().HasData(new Ingredient("Leite condensado"));
-            modelBuilder.Entity<Ingredient>().HasData(new Ingredient("Farinha"));
-
-
             base.OnModelCreating(modelBuilder);
         }
 

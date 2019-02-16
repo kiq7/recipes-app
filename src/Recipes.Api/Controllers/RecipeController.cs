@@ -30,7 +30,7 @@ namespace Recipes.Api.Controllers
             return Ok(_mapper.Map<IEnumerable<RecipeViewModel>>(recipes));
         }
 
-        [HttpGet("receitas/{id}")]
+        [HttpGet("receitas/{recipeId}")]
         [ProducesResponseType(typeof(RecipeViewModel), (int)HttpStatusCode.OK)]
         public IActionResult GetById(Guid recipeId)
         {
@@ -38,33 +38,33 @@ namespace Recipes.Api.Controllers
             return Ok(_mapper.Map<RecipeViewModel>(recipe));
         }
 
-        [HttpGet("receitas/{id}/ingredientes")]
+        [HttpGet("receitas/{recipeId}/ingredientes")]
         [ProducesResponseType(typeof(IEnumerable<IngredientViewModel>), (int)HttpStatusCode.OK)]
-        public IActionResult GetRecipeIngredients(Guid ingredientId)
+        public IActionResult GetRecipeIngredients(Guid recipeId)
         {
-            var ingredients = _service.GetRecipeIngredients(ingredientId);
+            var ingredients = _service.GetRecipeIngredients(recipeId);
             return Ok(_mapper.Map<IEnumerable<IngredientViewModel>>(ingredients));
         }
 
-        [HttpGet("receitas/ingredientes/{id}")]
+        [HttpGet("receitas/ingredientes/{ingredientId}")]
         [ProducesResponseType(typeof(RecipeViewModel), (int)HttpStatusCode.OK)]
         public IActionResult GetRecipesByUsedIngredient(Guid ingredientId)
         {
             var recipes = _service.GetRecipesByUsedIngredient(ingredientId);
-            return Ok(_mapper.Map<RecipeViewModel>(recipes));
+            return Ok(_mapper.Map<IEnumerable<RecipeViewModel>>(recipes));
         }
 
         [HttpPost("receita")]
-        [ProducesResponseType(typeof(RecipeViewModel), (int)HttpStatusCode.OK)]
-        public IActionResult Post([FromBody] RecipeViewModel recipeViewModel) // TODO Input model?
+        [ProducesResponseType(typeof(AddRecipeViewModel), (int)HttpStatusCode.OK)]
+        public IActionResult Post([FromBody] AddRecipeViewModel addRecipeViewModel)
         {
-            var recipe = _mapper.Map<Recipe>(recipeViewModel);
+            var recipe = _mapper.Map<Recipe>(addRecipeViewModel);
 
             if (recipe.Invalid)
                 return BadRequest(new { Messages = recipe.Notifications });
 
             _service.Add(recipe);
-            return Ok(recipeViewModel);
+            return Ok(addRecipeViewModel);
         }
     }
 }

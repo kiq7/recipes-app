@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using Recipes.Domain.Core.Entities;
 using Recipes.Domain.Core.Interfaces.Repositories;
@@ -32,6 +33,7 @@ namespace Recipes.Infra.Data.Repositories
         {
             return _dbSet;
         }
+
 
         public int SaveChanges()
         {

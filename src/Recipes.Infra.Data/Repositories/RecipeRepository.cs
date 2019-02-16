@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.EntityFrameworkCore;
 using Recipes.Domain.Entities;
 using Recipes.Domain.Interfaces.Repository;
 using Recipes.Infra.Data.Context;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Recipes.Infra.Data.Repositories
 {
@@ -16,12 +17,34 @@ namespace Recipes.Infra.Data.Repositories
 
         public IEnumerable<Recipe> GetRecipesByUsedIngredient(Guid ingredientId)
         {
-            return _dbSet.Where(x => x.RecipeIngredients.Any(ingredient => ingredient.IngredientId == ingredientId));
+            return _dbSet
+                .Include(x => x.RecipeIngredients)
+                    .ThenInclude(y => y.Ingredient)
+                .Where(x => x.RecipeIngredients.Any(ingredient => ingredient.IngredientId == ingredientId));
         }
 
         public IEnumerable<Ingredient> GetRecipeIngredients(Guid recipeId)
         {
-            return _dbSet.FirstOrDefault(x => x.Id == recipeId)?.RecipeIngredients.Select(x => x.Ingredient);
+            return _dbSet
+                .Include(x => x.RecipeIngredients)
+                    .ThenInclude(y => y.Ingredient)
+                .FirstOrDefault(x => x.Id == recipeId)?.RecipeIngredients.Select(x => x.Ingredient);
+        }
+
+        public override IQueryable<Recipe> GetAll()
+        {
+            return _dbSet
+                .Include(x => x.RecipeIngredients)
+                    .ThenInclude(y => y.Ingredient)
+                .AsQueryable();
+        }
+
+        public override Recipe GetById(Guid id)
+        {
+            return _dbSet
+                .Include(x => x.RecipeIngredients)
+                    .ThenInclude(y => y.Ingredient)
+                .FirstOrDefault(x => x.Id == id);
         }
     }
 }
