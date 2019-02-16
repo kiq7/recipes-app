@@ -23,7 +23,7 @@ namespace Recipes.Api.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("receitas")]
+        [HttpGet("ingredientes")]
         [ProducesResponseType(typeof(IEnumerable<RecipeViewModel>), (int)HttpStatusCode.OK)]
         public IActionResult Get()
         {

@@ -10,7 +10,7 @@ using System.Net;
 
 namespace Recipes.Api.Controllers
 {
-    [Route("api")]
+    [Route("api/")]
     [ApiController]
     public class RecipeController : ControllerBase
     {
@@ -33,7 +33,7 @@ namespace Recipes.Api.Controllers
 
         [HttpGet("receitas/{id}")]
         [ProducesResponseType(typeof(RecipeViewModel), (int)HttpStatusCode.OK)]
-        public IActionResult Get(Guid recipeId)
+        public IActionResult GetById(Guid recipeId)
         {
             var recipe = _service.GetById(recipeId);
             return Ok(_mapper.Map<RecipeViewModel>(recipe));
@@ -57,14 +57,14 @@ namespace Recipes.Api.Controllers
 
         [HttpPost("receita")]
         [ProducesResponseType(typeof(RecipeViewModel), (int)HttpStatusCode.OK)]
-        public IActionResult Post([FromBody] RecipeViewModel recipeViewModel)
+        public IActionResult Post([FromBody] RecipeViewModel recipeViewModel) // TODO Input model?
         {
-            var book = _mapper.Map<Recipe>(recipeViewModel);
+            var recipe = _mapper.Map<Recipe>(recipeViewModel);
 
-            if (book.Invalid)
-                return BadRequest(new { Messages = book.Notifications });
+            if (recipe.Invalid)
+                return BadRequest(new { Messages = recipe.Notifications });
 
-            _service.Add(book);
+            _service.Add(recipe);
             return Ok(recipeViewModel);
         }
     }

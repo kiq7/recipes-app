@@ -27,7 +27,7 @@ namespace Recipes.Api
             services.AddMvc();
             services.AddSwaggerDocument(document =>
             {
-                document.Title = "BookWarehouse API";
+                document.Title = "Recipes API";
             });
 
             services.AddAutoMapper(mapper =>
