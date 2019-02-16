@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using AutoMapper;
 using Recipes.Api.Mappers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -64,10 +66,7 @@ namespace Recipes.Api
             using (var serviceScope = app.ApplicationServices.CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetService<RecipesContext>();
-                context.Ingredients.Add(new Ingredient("Leite condensado"));
-                context.Ingredients.Add(new Ingredient("Chocolate em pó"));
-                context.Ingredients.Add(new Ingredient("Teste"));
-                context.SaveChanges();
+                SeedIngredientsData(context);
             }
             
         }
@@ -76,6 +75,31 @@ namespace Recipes.Api
         {
             // Adding dependencies from another layers (isolated from Presentation)
             NativeInjectorBootStrapper.RegisterServices(services);
+        }
+
+        private static void SeedIngredientsData(DbContext context)
+        {
+            var ingredients = new List<Ingredient>
+            {
+                new Ingredient("Leite em pó"),
+                new Ingredient("Leite condensado"),
+                new Ingredient("Ovos"),
+                new Ingredient("Açucar"),
+                new Ingredient("Chocolate em pó"),
+                new Ingredient("Agua"),
+                new Ingredient("Farinha de trigo"),
+                new Ingredient("Coco ralado"),
+                new Ingredient("Creme de leite"),
+                new Ingredient("Sal"),
+                new Ingredient("Óleo"),
+                new Ingredient("Fermento em pó"),
+                new Ingredient("Margarina"),
+                new Ingredient("Chocolate derretido"),
+            };
+
+
+            context.AddRange(ingredients);
+            context.SaveChanges();
         }
     }
 }
