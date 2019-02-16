@@ -24,7 +24,7 @@ namespace Recipes.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddDbContext<RecipesContext>(context => { context.UseInMemoryDatabase("RecipesApp"); });
+            services.AddDbContext<RecipesContext>(context => context.UseInMemoryDatabase("RecipesApp"));
 
             services.AddCors();
             services.AddMvc();

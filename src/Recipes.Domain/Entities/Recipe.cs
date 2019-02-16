@@ -7,12 +7,13 @@ namespace Recipes.Domain.Entities
 {
     public class Recipe : Entity
     {
-        public Recipe(string name, int serves, decimal calories, List<Ingredient> ingredients, string directions)
+        public Recipe() { }
+        public Recipe(string name, int serves, decimal calories, List<RecipeIngredient> recipeIngredients, string directions)
         {
             Name = name;
             Serves = serves;
             Calories = calories;
-            Ingredients = ingredients;
+            RecipeIngredients = recipeIngredients;
             Directions = directions;
 
             AddNotifications(new Contract()
@@ -21,15 +22,15 @@ namespace Recipes.Domain.Entities
                 .IsNotNullOrEmpty(Directions, "Directions", "A receita deve ter um modo de preparo.")
                 .IsGreaterOrEqualsThan(Serves, 0, "Serves", "Quantidade de porções deve ser maior que zero.")
                 .IsGreaterThan(Calories, 0, "Calories", "Calorias deve ser maior que zero.")
-                .IsNotNull(Ingredients, "Ingredients", "A receita deve possuir pelo menos um ingrediente.")
-                .IsGreaterThan(Ingredients.Count, 0, "Ingredients", "A receita deve possuir pelo menos um ingrediente."));
+                .IsNotNull(RecipeIngredients, "Ingredients", "A receita deve possuir pelo menos um ingrediente.")
+                .IsGreaterThan(RecipeIngredients.Count, 0, "Ingredients", "A receita deve possuir pelo menos um ingrediente."));
         }
 
-        public string Name { get; }
-        public int Serves { get; }
-        public decimal Calories { get; }
-        public List<Ingredient> Ingredients { get; }
-        public string Directions { get; }
+        public string Name { get; private set; }
+        public int Serves { get; private set; }
+        public decimal Calories { get; private set; }
+        public List<RecipeIngredient> RecipeIngredients { get; private set;  } = new List<RecipeIngredient>();
+        public string Directions { get; private set; }
 
         internal void SetId(Guid id)
         {

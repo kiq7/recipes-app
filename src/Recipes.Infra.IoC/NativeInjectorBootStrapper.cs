@@ -15,6 +15,8 @@ namespace Recipes.Infra.IoC
             services.AddScoped<RecipesContext>();
             services.AddScoped<IRecipeRepository, RecipeRepository>();
             services.AddScoped<IRecipeService, RecipeService>();
+            services.AddScoped<IIngredientRepository, IngredientRepository>();
+            services.AddScoped<IIngredientService, IngredientService>();
         }
     }
 }

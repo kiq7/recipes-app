@@ -16,12 +16,12 @@ namespace Recipes.Infra.Data.Repositories
 
         public IEnumerable<Recipe> GetRecipesByUsedIngredient(Guid ingredientId)
         {
-            return _dbSet.Where(x => x.Ingredients.Any(ingredient => ingredient.Id == ingredientId));
+            return _dbSet.Where(x => x.RecipeIngredients.Any(ingredient => ingredient.IngredientId == ingredientId));
         }
 
         public IEnumerable<Ingredient> GetRecipeIngredients(Guid recipeId)
         {
-            return _dbSet.FirstOrDefault(x => x.Id == recipeId)?.Ingredients;
+            return _dbSet.FirstOrDefault(x => x.Id == recipeId)?.RecipeIngredients.Select(x => x.Ingredient);
         }
     }
 }

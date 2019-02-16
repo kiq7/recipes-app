@@ -7,10 +7,10 @@ namespace Recipes.Api.ViewModels
     public class RecipeViewModel
     {
         public Guid Id { get; set; }
-        public string Name { get; }
-        public int Serves { get; }
-        public decimal Calories { get; }
-        public List<Ingredient> Ingredients { get; }
-        public string Directions { get; }
+        public string Name { get; set;  }
+        public int Serves { get; set; }
+        public decimal Calories { get; set; }
+        public List<IngredientViewModel> Ingredients { get; set; }
+        public string Directions { get; set; }
     }
 }
