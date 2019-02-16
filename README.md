@@ -28,14 +28,14 @@ On the root path, run the following commands:
 dotnet restore && dotnet run -p src/Recipes.API
 ```
 
-API will run at http://localhost:5000/
+API will run at http://localhost:5001/
 
 ### Exploring the API
 
 If you wanna test any method exposed by the API, you should do it by using the Swagger interactive documentation. Just navigate to
 
 ```
-htpp://<server>/swagger/
+http://localhost:5001/swagger/
 ``` 
 
 and explore it, as simple as that.
