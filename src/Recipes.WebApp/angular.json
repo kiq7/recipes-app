@@ -132,5 +132,10 @@
       }
     }
   },
-  "defaultProject": "recipes-webapp"
+  "defaultProject": "recipes-webapp",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

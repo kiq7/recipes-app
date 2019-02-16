@@ -1,11 +1,10 @@
-import { IRecipesList } from '../shared/interfaces/IRecipesList';
+import { IRecipesList, IRecipe } from '../structure/interfaces';
 import { throwError as observableThrowError,  Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
-import { IRecipeModel } from '../shared/models/IRecipeModel';
+import { IRecipeModel } from '../structure/models/IRecipeModel';
 import { environment } from '../../environments/environment';
-import { IRecipe } from '../shared/interfaces';
 
 @Injectable()
 export class RecipeService {

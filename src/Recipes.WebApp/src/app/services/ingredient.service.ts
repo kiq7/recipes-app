@@ -1,4 +1,4 @@
-import { IIngredient } from './../shared/interfaces/IIngredient';
+import { IIngredient } from './../structure/interfaces';
 import { throwError as observableThrowError,  Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
