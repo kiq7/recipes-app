@@ -5,25 +5,6 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 import { IRecipe } from 'src/app/structure/interfaces';
 import { RecipeService } from 'src/app/services';
 
-// // TODO: replace this with real data from your application
-// const EXAMPLE_DATA: IRecipe[] = [
-//   {
-//     id: '1',
-//     name: 'Bolo de fuba',
-//     calories: 23,
-//     serves: 20,
-//     ingredients: [
-//       { id: '2', name: 'Queijo' },
-//       { id: '4', name: 'Tomate' },
-//     ],
-//     directions: 'aeAEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE'
-//   },
-//   { id: '2', name: 'Bolo de fuba', calories: 23, serves: 20, ingredients: [{ id: '2', name: 'Queijo' }], directions: 'ae' },
-//   { id: '3', name: 'Bolo de fuba', calories: 23, serves: 20, ingredients: [{ id: '2', name: 'Queijo' }], directions: 'ae' },
-//   { id: '4', name: 'Bolo de fuba', calories: 23, serves: 20, ingredients: [{ id: '2', name: 'Queijo' }], directions: 'ae' },
-//   { id: '5', name: 'Bolo de fuba', calories: 23, serves: 20, ingredients: [{ id: '2', name: 'Queijo' }], directions: 'ae' }
-// ];
-
 /**
  * Data source for the RecipesList view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data

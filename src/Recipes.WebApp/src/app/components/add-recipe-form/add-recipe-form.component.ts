@@ -37,11 +37,13 @@ export class AddRecipeFormComponent implements OnInit {
       ]),
       calories: new FormControl(this.model.calories, [
         Validators.required,
-        Validators.maxLength(10)
+        Validators.maxLength(10),
+        Validators.min(1)
       ]),
       serves: new FormControl(this.model.serves, [
         Validators.required,
-        Validators.maxLength(10)
+        Validators.maxLength(10),
+        Validators.min(1)
       ]),
       ingredients: new FormControl(this.model.ingredients, [
         Validators.required,
@@ -65,12 +67,15 @@ export class AddRecipeFormComponent implements OnInit {
       return null;
     }
 
-    this.recipeService.post(this.recipeForm.value).subscribe(res => {
+    this.recipeService.post(this.recipeForm.value).subscribe(() => {
       alert('Receita cadastrada com sucesso.');
+      this.goToHome();
+    }, err => {
+      console.log(err);
     });
   }
 
-  backToHome() {
+  goToHome() {
     this.router.navigate(['']);
   }
 }

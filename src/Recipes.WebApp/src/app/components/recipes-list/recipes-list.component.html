@@ -1,5 +1,5 @@
 <div class="mat-elevation-z8">
-  <table mat-table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
+  <table mat-table class="full-width-table" [dataSource]="dataSource.data" matSort aria-label="Elements">
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>
@@ -17,7 +17,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 
-  <div class="no-results" [style.display]="dataSource.data.length == 0 ? '' : 'none'">
+  <div class="no-results" [style.display]="dataSource.data && dataSource.data.length === 0 ? '' : 'none'">
     Nenhuma receita cadastrada.
     <p></p>
     <a routerLink="/cadastrar">
