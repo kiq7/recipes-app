@@ -5,7 +5,6 @@ using Recipes.Domain.Entities;
 using Recipes.Domain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 
 namespace Recipes.Api.Controllers
@@ -43,15 +42,15 @@ namespace Recipes.Api.Controllers
         [ProducesResponseType(typeof(IEnumerable<IngredientViewModel>), (int)HttpStatusCode.OK)]
         public IActionResult GetRecipeIngredients(Guid ingredientId)
         {
-            var ingredients = _service.GetById(ingredientId).Ingredients; // TODO
+            var ingredients = _service.GetRecipeIngredients(ingredientId);
             return Ok(_mapper.Map<IEnumerable<IngredientViewModel>>(ingredients));
         }
 
         [HttpGet("receitas/ingredientes/{id}")]
         [ProducesResponseType(typeof(RecipeViewModel), (int)HttpStatusCode.OK)]
-        public IActionResult GetRecipesByIngredientId(Guid ingredientId)
+        public IActionResult GetRecipesByUsedIngredient(Guid ingredientId)
         {
-            var recipes = _service.GetAll().Where(x => x.Ingredients.Any(y => y.Id == ingredientId)); // TODO
+            var recipes = _service.GetRecipesByUsedIngredient(ingredientId);
             return Ok(_mapper.Map<RecipeViewModel>(recipes));
         }
 

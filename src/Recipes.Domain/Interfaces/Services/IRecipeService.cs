@@ -9,5 +9,7 @@ namespace Recipes.Domain.Interfaces.Services
         void Add(Recipe recipe);
         Recipe GetById(Guid id);
         IEnumerable<Recipe> GetAll();
+        IEnumerable<Recipe> GetRecipesByUsedIngredient(Guid ingredientId);
+        IEnumerable<Ingredient> GetRecipeIngredients(Guid recipeId);
     }
 }

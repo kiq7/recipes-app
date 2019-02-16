@@ -3,8 +3,10 @@ using Recipes.Api.Mappers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Recipes.Infra.Data.Context;
 using Recipes.Infra.IoC;
 
 namespace Recipes.Api
@@ -22,6 +24,7 @@ namespace Recipes.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddDbContext<RecipesContext>(context => { context.UseInMemoryDatabase("RecipesApp"); });
 
             services.AddCors();
             services.AddMvc();

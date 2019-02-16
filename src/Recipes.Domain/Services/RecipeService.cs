@@ -32,5 +32,15 @@ namespace Recipes.Domain.Services
         {
             return _repository.GetAll().OrderBy(recipe => recipe.Name);
         }
+
+        public IEnumerable<Recipe> GetRecipesByUsedIngredient(Guid ingredientId)
+        {
+            return _repository.GetRecipesByUsedIngredient(ingredientId);
+        }
+
+        public IEnumerable<Ingredient> GetRecipeIngredients(Guid recipeId)
+        {
+            return _repository.GetRecipeIngredients(recipeId);
+        }
     }
 }
