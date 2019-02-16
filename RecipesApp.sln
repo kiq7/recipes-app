@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recipes.Domain", "src\Recipes.Domain\Recipes.Domain.csproj", "{0B60E96D-5378-4EBA-AB8D-C6157EDCD55A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipes.Domain.Core", "src\Recipes.Domain.Core\Recipes.Domain.Core.csproj", "{A4E48BA6-5B91-4AD0-BAB6-17D89AB0D79F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recipes.Domain.Core", "src\Recipes.Domain.Core\Recipes.Domain.Core.csproj", "{A4E48BA6-5B91-4AD0-BAB6-17D89AB0D79F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipes.Infra.Data", "src\Recipes.Infra.Data\Recipes.Infra.Data.csproj", "{593CEB9D-FDE5-4DC2-B8C4-2E0E5528A294}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A4E48BA6-5B91-4AD0-BAB6-17D89AB0D79F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4E48BA6-5B91-4AD0-BAB6-17D89AB0D79F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4E48BA6-5B91-4AD0-BAB6-17D89AB0D79F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{593CEB9D-FDE5-4DC2-B8C4-2E0E5528A294}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{593CEB9D-FDE5-4DC2-B8C4-2E0E5528A294}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{593CEB9D-FDE5-4DC2-B8C4-2E0E5528A294}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{593CEB9D-FDE5-4DC2-B8C4-2E0E5528A294}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
