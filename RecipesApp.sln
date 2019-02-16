@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recipes.Domain.Core", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipes.Infra.Data", "src\Recipes.Infra.Data\Recipes.Infra.Data.csproj", "{593CEB9D-FDE5-4DC2-B8C4-2E0E5528A294}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipes.Infra.IoC", "src\Recipes.Infra.IoC\Recipes.Infra.IoC.csproj", "{7807F7A8-B824-4C22-9F6F-FB62CC6ABE1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{593CEB9D-FDE5-4DC2-B8C4-2E0E5528A294}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{593CEB9D-FDE5-4DC2-B8C4-2E0E5528A294}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{593CEB9D-FDE5-4DC2-B8C4-2E0E5528A294}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7807F7A8-B824-4C22-9F6F-FB62CC6ABE1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7807F7A8-B824-4C22-9F6F-FB62CC6ABE1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7807F7A8-B824-4C22-9F6F-FB62CC6ABE1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7807F7A8-B824-4C22-9F6F-FB62CC6ABE1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
