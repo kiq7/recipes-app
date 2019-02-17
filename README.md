@@ -1,4 +1,5 @@
 # RecipesApp
+[![Build status](https://ci.appveyor.com/api/projects/status/3ll52d3by9e8r58m?svg=true)](https://ci.appveyor.com/project/kiq7/recipes-app)
 
 An simple app to manage cook recipes.
 
