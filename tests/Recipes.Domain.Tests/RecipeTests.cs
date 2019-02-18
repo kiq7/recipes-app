@@ -29,41 +29,49 @@ namespace Recipes.Domain.Tests
             };
             _directions = "My recipe directions";
         }
-        
+
         [Fact]
         public void ShouldReturnErrorWhenRecipeHasNoName()
         {
             var recipe = new Recipe(string.Empty, _serves, _calories, _directions, _recipeIngredients);
-            recipe.Invalid.Should().BeTrue();
+            recipe.Valid.Should().BeFalse();
             recipe.Notifications.Should().HaveCount(1);
             recipe.Notifications.FirstOrDefault()?.Property.Should().Be(nameof(recipe.Name));
         }
-        
+
         [Fact]
         public void ShouldReturnErrorWhenRecipeHasZeroServes()
         {
             var recipe = new Recipe(_name, 0, _calories, _directions, _recipeIngredients);
-            recipe.Invalid.Should().BeTrue();
+            recipe.Valid.Should().BeFalse();
             recipe.Notifications.Should().HaveCount(1);
             recipe.Notifications.FirstOrDefault()?.Property.Should().Be(nameof(recipe.Serves));
         }
-        
+
         [Fact]
         public void ShouldReturnErrorWhenRecipeHasNoDirections()
         {
             var recipe = new Recipe(_name, _serves, _calories, string.Empty, _recipeIngredients);
-            recipe.Invalid.Should().BeTrue();
+            recipe.Valid.Should().BeFalse();
             recipe.Notifications.Should().HaveCount(1);
             recipe.Notifications.FirstOrDefault()?.Property.Should().Be(nameof(recipe.Directions));
         }
-        
+
         [Fact]
         public void ShouldReturnErrorWhenRecipeHasNoIngredients()
         {
             var recipe = new Recipe(_name, _serves, _calories, _directions, new List<RecipeIngredient>());
-            recipe.Invalid.Should().BeTrue();
+            recipe.Valid.Should().BeFalse();
             recipe.Notifications.Should().HaveCount(1);
             recipe.Notifications.FirstOrDefault()?.Property.Should().Be(nameof(recipe.Ingredients));
+        }
+
+        [Fact]
+        public void ShouldReturnSuccessWhenRecipeIsValid()
+        {
+            var recipe = new Recipe(_name, _serves, _calories, _directions, _recipeIngredients);
+            recipe.Valid.Should().BeTrue();
+            recipe.Notifications.Should().BeNullOrEmpty();
         }
     }
 }
