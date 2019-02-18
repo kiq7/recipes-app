@@ -19,3 +19,8 @@ before_build:
 
 build:
   verbosity: minimal
+
+test:
+  assemblies:
+    only:
+      Recipe.Domain.Tests.dll
