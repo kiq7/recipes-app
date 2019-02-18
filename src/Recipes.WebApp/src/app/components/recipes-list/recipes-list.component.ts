@@ -16,9 +16,9 @@ export class RecipesListComponent implements OnInit {
   dataSource: RecipesListDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['name', 'actions'];
+  displayedColumns = ['id', 'name', 'actions'];
 
-  constructor(public dialog: MatDialog, public recipeService: RecipeService) {}
+  constructor(public dialog: MatDialog, public recipeService: RecipeService) { }
 
   ngOnInit() {
     this.dataSource = new RecipesListDataSource(this.paginator, this.sort, this.recipeService);
