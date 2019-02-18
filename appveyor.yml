@@ -23,4 +23,4 @@ build:
 test:
   assemblies:
     only:
-      Recipe.Domain.Tests.dll
+      - Recipe.Domain.Tests.dll
