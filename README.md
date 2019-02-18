@@ -18,7 +18,7 @@ An simple app to manage cook recipes.
 ### Checkout this repository 
 
 ```
-git clone https://github.com/kiq7/recipes-app
+git clone https://github.com/kiq7/recipes-app.git
 ```
 
 ### Backend 
