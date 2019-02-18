@@ -18,23 +18,23 @@ namespace Recipes.Infra.Data.Repositories
         public IEnumerable<Recipe> GetRecipesByUsedIngredient(Guid ingredientId)
         {
             return _dbSet
-                .Include(x => x.RecipeIngredients)
+                .Include(x => x.Ingredients)
                     .ThenInclude(y => y.Ingredient)
-                .Where(x => x.RecipeIngredients.Any(ingredient => ingredient.IngredientId == ingredientId));
+                .Where(x => x.Ingredients.Any(ingredient => ingredient.IngredientId == ingredientId));
         }
 
         public IEnumerable<Ingredient> GetRecipeIngredients(Guid recipeId)
         {
             return _dbSet
-                .Include(x => x.RecipeIngredients)
+                .Include(x => x.Ingredients)
                     .ThenInclude(y => y.Ingredient)
-                .FirstOrDefault(x => x.Id == recipeId)?.RecipeIngredients.Select(x => x.Ingredient);
+                .FirstOrDefault(x => x.Id == recipeId)?.Ingredients.Select(x => x.Ingredient);
         }
 
         public override IQueryable<Recipe> GetAll()
         {
             return _dbSet
-                .Include(x => x.RecipeIngredients)
+                .Include(x => x.Ingredients)
                     .ThenInclude(y => y.Ingredient)
                 .AsQueryable();
         }
@@ -42,7 +42,7 @@ namespace Recipes.Infra.Data.Repositories
         public override Recipe GetById(Guid id)
         {
             return _dbSet
-                .Include(x => x.RecipeIngredients)
+                .Include(x => x.Ingredients)
                     .ThenInclude(y => y.Ingredient)
                 .FirstOrDefault(x => x.Id == id);
         }

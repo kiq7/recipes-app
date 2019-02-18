@@ -30,7 +30,7 @@ namespace Recipes.Infra.Data.Context
 
             modelBuilder.Entity<RecipeIngredient>()
                 .HasOne(sc => sc.Recipe)
-                .WithMany(s => s.RecipeIngredients)
+                .WithMany(s => s.Ingredients)
                 .HasForeignKey(sc => sc.RecipeId);
 
             base.OnModelCreating(modelBuilder);

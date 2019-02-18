@@ -20,7 +20,7 @@ namespace Recipes.Domain.Services
         {
             recipe.SetId(Guid.NewGuid());
 
-            recipe.RecipeIngredients.ForEach(x => x.RecipeId = recipe.Id);
+            recipe.Ingredients.ForEach(x => x.RecipeId = recipe.Id);
 
             _repository.Add(recipe);
             _repository.SaveChanges();

@@ -12,11 +12,11 @@ namespace Recipes.Api.Mappers
         public RecipeMap()
         {
             CreateMap<Recipe, RecipeViewModel>()
-                .ForMember(x => x.Ingredients, y => y.MapFrom(z => ResolveIngredientsToViewModel(z.RecipeIngredients)));
+                .ForMember(x => x.Ingredients, y => y.MapFrom(z => ResolveIngredientsToViewModel(z.Ingredients)));
             CreateMap<RecipeViewModel, Recipe>();
             CreateMap<Recipe, AddRecipeViewModel>();
             CreateMap<AddRecipeViewModel, Recipe>()
-                .ForMember(x => x.RecipeIngredients, y => y.MapFrom(z => ResolveIngredientsToEntity(z.Ingredients)));
+                .ForMember(x => x.Ingredients, y => y.MapFrom(z => ResolveIngredientsToEntity(z.Ingredients)));
 
         }
 

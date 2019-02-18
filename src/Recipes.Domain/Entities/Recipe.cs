@@ -13,16 +13,15 @@ namespace Recipes.Domain.Entities
             Serves = serves;
             Calories = calories;
             Directions = directions;
-            RecipeIngredients = ingredients;
+            Ingredients = ingredients;
 
             AddNotifications(new Contract()
                 .Requires()
                 .IsNotNullOrEmpty(Name, "Name", "A receita deve ter um nome.")
                 .IsNotNullOrEmpty(Directions, "Directions", "A receita deve ter um modo de preparo.")
-                .IsGreaterOrEqualsThan(Serves, 0, "Serves", "Quantidade de porções deve ser maior que zero.")
-                .IsGreaterThan(Calories, 0, "Calories", "Calorias deve ser maior que zero.")
-                .IsNotNull(RecipeIngredients, "Ingredients", "Deve possuir pelo menos um ingrediente.")
-                .IsGreaterThan(RecipeIngredients.Count, 0, "Ingredients", "Deve possuir pelo menos um ingrediente"));
+                .IsGreaterThan(Serves, 0, "Serves", "Quantidade de porções deve ser maior que zero.")
+                .IsNotNull(Ingredients, "Ingredients", "Deve possuir pelo menos um ingrediente.")
+                .IsGreaterThan(Ingredients.Count, 0, "Ingredients", "Deve possuir pelo menos um ingrediente"));
         }
 
         public Recipe()
@@ -32,7 +31,7 @@ namespace Recipes.Domain.Entities
         public string Name { get; private set; }
         public int Serves { get; private set; }
         public decimal Calories { get; private set; }
-        public List<RecipeIngredient> RecipeIngredients { get; private set; }
+        public List<RecipeIngredient> Ingredients { get; private set; }
         public string Directions { get; private set; }
 
         internal void SetId(Guid id)
