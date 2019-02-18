@@ -64,7 +64,7 @@ Frontend application will run at http://localhost:4200
 
 ## Built With
 
-* [.NET Core](https://www.microsoft.com/net/learn/get-started/) + Entity Framework Core, DI, AutoMapper, Flunt, EF InMemory Database
+* [.NET Core](https://www.microsoft.com/net/learn/get-started/) + Entity Framework Core, DI, AutoMapper, Flunt, EF InMemory Database, xUnit + Fluent Assertions
 * [Angular 7](https://angular.io/) + Angular Material
 
 ## Author
