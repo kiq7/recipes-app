@@ -41,6 +41,13 @@ http://localhost:5001/swagger/
 
 and explore it, as simple as that.
 
+### Running the tests
+
+On the root path, run the following command:
+
+```
+$ dotnet test tests/Recipes.Domain.Tests
+```
 
 ### Frontend
 
